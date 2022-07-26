@@ -173,4 +173,6 @@ const (
 	ZAR = "ZAR"
 	ZMW = "ZMW"
 	ZWD = "ZWD"
+	BTC = "BTC"
+	ETH = "ETH"
 )

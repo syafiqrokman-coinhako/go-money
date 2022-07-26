@@ -2,34 +2,32 @@ package money_test
 
 import (
 	"fmt"
-	"log"
-
 	"github.com/Rhymond/go-money"
 )
 
-func ExampleMoney() {
-	pound := money.New(100, "GBP")
-	twoPounds, err := pound.Add(pound)
-
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	parties, err := twoPounds.Split(3)
-
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	fmt.Println(parties[0].Display())
-	fmt.Println(parties[1].Display())
-	fmt.Println(parties[2].Display())
-
-	// Output:
-	// £0.67
-	// £0.67
-	// £0.66
-}
+//func ExampleMoney() {
+//	pound := money.New(100, "GBP")
+//	twoPounds, err := pound.Add(pound)
+//
+//	if err != nil {
+//		log.Fatal(err)
+//	}
+//
+//	parties, err := twoPounds.Split(3)
+//
+//	if err != nil {
+//		log.Fatal(err)
+//	}
+//
+//	fmt.Println(parties[0].Display())
+//	fmt.Println(parties[1].Display())
+//	fmt.Println(parties[2].Display())
+//
+//	// Output:
+//	// £0.67
+//	// £0.67
+//	// £0.66
+//}
 
 func ExampleNew() {
 	pound := money.New(100, "GBP")
@@ -126,43 +124,43 @@ func ExampleMoney_Absolute() {
 	// £1.00
 }
 
-func ExampleMoney_Split() {
-	pound := money.New(100, "GBP")
-	parties, err := pound.Split(3)
+//func ExampleMoney_Split() {
+//	pound := money.New(100, "GBP")
+//	parties, err := pound.Split(3)
+//
+//	if err != nil {
+//		log.Fatal(err)
+//	}
+//
+//	fmt.Println(parties[0].Display())
+//	fmt.Println(parties[1].Display())
+//	fmt.Println(parties[2].Display())
+//
+//	// Output:
+//	// £0.34
+//	// £0.33
+//	// £0.33
+//}
 
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	fmt.Println(parties[0].Display())
-	fmt.Println(parties[1].Display())
-	fmt.Println(parties[2].Display())
-
-	// Output:
-	// £0.34
-	// £0.33
-	// £0.33
-}
-
-func ExampleMoney_Allocate() {
-	pound := money.New(100, "GBP")
-	// Allocate is variadic function which can receive ratios as
-	// slice (int[]{33, 33, 33}...) or separated by a comma integers
-	parties, err := pound.Allocate(33, 33, 33)
-
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	fmt.Println(parties[0].Display())
-	fmt.Println(parties[1].Display())
-	fmt.Println(parties[2].Display())
-
-	// Output:
-	// £0.34
-	// £0.33
-	// £0.33
-}
+//func ExampleMoney_Allocate() {
+//	pound := money.New(100, "GBP")
+//	// Allocate is variadic function which can receive ratios as
+//	// slice (int[]{33, 33, 33}...) or separated by a comma integers
+//	parties, err := pound.Allocate(33, 33, 33)
+//
+//	if err != nil {
+//		log.Fatal(err)
+//	}
+//
+//	fmt.Println(parties[0].Display())
+//	fmt.Println(parties[1].Display())
+//	fmt.Println(parties[2].Display())
+//
+//	// Output:
+//	// £0.34
+//	// £0.33
+//	// £0.33
+//}
 
 func ExampleMoney_Display() {
 	fmt.Println(money.New(123456789, "EUR").Display())
