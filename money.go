@@ -52,16 +52,15 @@ func defaultUnmarshalJSON(m *Money, b []byte) error {
 	if amount == 0 && currency == "" {
 		ref = &Money{}
 	} else {
-		ref = New(int64(amount), currency)
+		ref = New(fmt.Sprintf("%f", amount), currency)
 	}
-
 	*m = *ref
 	return nil
 }
 
 func defaultMarshalJSON(m Money) ([]byte, error) {
 	if m == (Money{}) {
-		m = *New(0, "")
+		m = *New("0", "")
 	}
 
 	amount := m.Amount()
@@ -82,7 +81,7 @@ type Money struct {
 }
 
 // New creates and returns new instance of Money.
-func New(amount int64, code string) *Money {
+func New(amount string, code string) *Money {
 	return &Money{
 		//amount:   &Amount{val: amount},
 		amount:   newAmount(amount),
@@ -90,8 +89,9 @@ func New(amount int64, code string) *Money {
 	}
 }
 
-func newAmount(amount int64) *Amount {
-	a := big.NewInt(amount)
+func newAmount(amount string) *Amount {
+	a := new(big.Int)
+	a.SetString(amount, 10)
 	return &Amount{val: *a}
 }
 

@@ -30,7 +30,7 @@ import (
 //}
 
 func ExampleNew() {
-	pound := money.New(100, "GBP")
+	pound := money.New("100", "GBP")
 
 	fmt.Println(pound.Display())
 
@@ -39,9 +39,9 @@ func ExampleNew() {
 }
 
 func ExampleMoney_comparisons() {
-	pound := money.New(100, "GBP")
-	twoPounds := money.New(200, "GBP")
-	twoEuros := money.New(200, "EUR")
+	pound := money.New("100", "GBP")
+	twoPounds := money.New("200", "GBP")
+	twoEuros := money.New("200", "EUR")
 
 	gt, err := pound.GreaterThan(twoPounds)
 	fmt.Println(gt, err)
@@ -59,7 +59,7 @@ func ExampleMoney_comparisons() {
 }
 
 func ExampleMoney_IsZero() {
-	pound := money.New(100, "GBP")
+	pound := money.New("100", "GBP")
 	fmt.Println(pound.IsZero())
 
 	// Output:
@@ -67,7 +67,7 @@ func ExampleMoney_IsZero() {
 }
 
 func ExampleMoney_IsPositive() {
-	pound := money.New(100, "GBP")
+	pound := money.New("100", "GBP")
 	fmt.Println(pound.IsPositive())
 
 	// Output:
@@ -75,7 +75,7 @@ func ExampleMoney_IsPositive() {
 }
 
 func ExampleMoney_IsNegative() {
-	pound := money.New(100, "GBP")
+	pound := money.New("100", "GBP")
 	fmt.Println(pound.IsNegative())
 
 	// Output:
@@ -83,8 +83,8 @@ func ExampleMoney_IsNegative() {
 }
 
 func ExampleMoney_Add() {
-	pound := money.New(100, "GBP")
-	twoPounds := money.New(200, "GBP")
+	pound := money.New("100", "GBP")
+	twoPounds := money.New("200", "GBP")
 
 	result, err := pound.Add(twoPounds)
 	fmt.Println(result.Display(), err)
@@ -94,8 +94,8 @@ func ExampleMoney_Add() {
 }
 
 func ExampleMoney_Subtract() {
-	pound := money.New(100, "GBP")
-	twoPounds := money.New(200, "GBP")
+	pound := money.New("100", "GBP")
+	twoPounds := money.New("200", "GBP")
 
 	result, err := pound.Subtract(twoPounds)
 	fmt.Println(result.Display(), err)
@@ -105,7 +105,7 @@ func ExampleMoney_Subtract() {
 }
 
 func ExampleMoney_Multiply() {
-	pound := money.New(100, "GBP")
+	pound := money.New("100", "GBP")
 
 	result := pound.Multiply(2)
 	fmt.Println(result.Display())
@@ -115,7 +115,7 @@ func ExampleMoney_Multiply() {
 }
 
 func ExampleMoney_Absolute() {
-	pound := money.New(-100, "GBP")
+	pound := money.New("-100", "GBP")
 
 	result := pound.Absolute()
 	fmt.Println(result.Display())
@@ -163,14 +163,14 @@ func ExampleMoney_Absolute() {
 //}
 
 func ExampleMoney_Display() {
-	fmt.Println(money.New(123456789, "EUR").Display())
+	fmt.Println(money.New("123456789", "EUR").Display())
 
 	// Output:
 	// €1,234,567.89
 }
 
 func ExampleMoney_AsMajorUnits() {
-	result := money.New(123456789, "EUR").AsMajorUnits()
+	result := money.New("123456789", "EUR").AsMajorUnits()
 	fmt.Printf("%.2f", result)
 
 	// Output:
